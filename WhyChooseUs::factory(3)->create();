@@ -1,0 +1,41 @@
+[90m= [39m[34;4mIlluminate\Database\Eloquent\Collection[39;24m {#6375
+    [34mall[39m: [
+      [34;4mApp\Models\Slider[39;24m {#6403
+        [34mimage[39m: "[32m/uploads/test[39m",
+        [34moffer[39m: "[32m50%[39m",
+        [34mtitle[39m: "[32mEnim nisi harum sapiente eum doloremque.[39m",
+        [34msub_title[39m: "[32mModi dolores cumque perspiciatis asperiores consectetur soluta rerum a est.[39m",
+        [34mshort_description[39m: "[32mImpedit sint excepturi et reiciendis asperiores. Est eius quis illo voluptatem officiis.[39m",
+        [34mbutton_link[39m: "[32mhttps://sawayn.com/dolorem-sequi-odio-beatae-et-ipsam.html[39m",
+        [34mstatus[39m: [36mfalse[39m,
+        [34mupdated_at[39m: "[32m2024-02-18 17:00:53[39m",
+        [34mcreated_at[39m: "[32m2024-02-18 17:00:53[39m",
+        [34mid[39m: [35m7[39m,
+      },
+      [34;4mApp\Models\Slider[39;24m {#6377
+        [34mimage[39m: "[32m/uploads/test[39m",
+        [34moffer[39m: "[32m50%[39m",
+        [34mtitle[39m: "[32mOdit ex ullam et numquam aspernatur impedit.[39m",
+        [34msub_title[39m: "[32mRerum labore quibusdam eos quis sed sit ab molestiae et accusantium.[39m",
+        [34mshort_description[39m: "[32mPorro nihil explicabo sit modi asperiores minus illum impedit. Laborum fugit est et officia odio molestiae. Reprehenderit explicabo qui ullam aut quod beatae cupiditate.[39m",
+        [34mbutton_link[39m: "[32mhttps://mckenzie.com/dolorem-voluptatem-voluptas-officia-voluptatibus-nam-ea-consectetur.html[39m",
+        [34mstatus[39m: [36mtrue[39m,
+        [34mupdated_at[39m: "[32m2024-02-18 17:00:53[39m",
+        [34mcreated_at[39m: "[32m2024-02-18 17:00:53[39m",
+        [34mid[39m: [35m8[39m,
+      },
+      [34;4mApp\Models\Slider[39;24m {#6404
+        [34mimage[39m: "[32m/uploads/test[39m",
+        [34moffer[39m: "[32m50%[39m",
+        [34mtitle[39m: "[32mDeleniti quia eaque sed omnis aliquid qui.[39m",
+        [34msub_title[39m: "[32mEt ad minima ea itaque sit porro.[39m",
+        [34mshort_description[39m: "[32mQui illum temporibus placeat quo tempora et. Dicta qui ut distinctio.[39m",
+        [34mbutton_link[39m: "[32mhttp://kerluke.com/assumenda-ducimus-eos-laboriosam-incidunt-laboriosam-rerum.html[39m",
+        [34mstatus[39m: [36mtrue[39m,
+        [34mupdated_at[39m: "[32m2024-02-18 17:00:53[39m",
+        [34mcreated_at[39m: "[32m2024-02-18 17:00:53[39m",
+        [34mid[39m: [35m9[39m,
+      },
+    ],
+  }
+

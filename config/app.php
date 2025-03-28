@@ -169,6 +169,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\SettingServiceProvider::class,
+        App\Providers\PaymentGatewaySettingServiceProvider::class,
+        App\Providers\CustomMailServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -183,7 +185,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
     ])->toArray(),
 
 ];

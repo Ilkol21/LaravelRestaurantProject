@@ -5,9 +5,11 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\ChatController;
 use App\Http\Controllers\Frontend\CheckoutController;
+use App\Http\Controllers\Frontend\CustomPageController;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\PaymentController;
+use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +24,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [FrontendController::class, 'index'])->name('home');
 
 /** Admin Auth Routes */
 Route::group(['middleware' => 'guest'], function () {
@@ -30,8 +31,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('admin/forget-password', [AdminAuthController::class, 'forgetPassword'])->name('admin.forget-password');
 });
 
-
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth'], function(){
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::put('profile', [ProfileController::class, 'updateProfile'])->name('profile.update');
     Route::put('profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password.update');
@@ -45,13 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('chat/get-conversation/{senderId}',[ChatController::class, 'getConversation'])->name('chat.get-conversation');
 });
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-Route::resource('slider', SliderController::class);
+require __DIR__.'/auth.php';
 
 /** Show Home page */
 Route::get('/', [FrontendController::class, 'index'])->name('home');
@@ -60,6 +54,34 @@ Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/chef', [FrontendController::class, 'chef'])->name('chef');
 /** Testimonial page */
 Route::get('/testimonials', [FrontendController::class, 'testimonial'])->name('testimonial');
+
+/** Blogs Routes */
+Route::get('/blogs', [FrontendController::class, 'blog'])->name('blogs');
+Route::get('/blogs/{slug}', [FrontendController::class, 'blogDetails'])->name('blogs.details');
+Route::post('/blogs/comment/{blog_id}', [FrontendController::class, 'blogCommentStore'])->name('blogs.comment.store');
+
+/** About Routes */
+Route::get('/about', [FrontendController::class, 'about'])->name('about');
+/** Privacy Policy Routes */
+Route::get('/privacy-policy', [FrontendController::class, 'privacyPolicy'])->name('privacy-policy.index');
+/** Trams and Conditions Routes */
+Route::get('/trams-and-conditions', [FrontendController::class, 'tramsAndConditions'])->name('trams-and-conditions');
+/** Contact Routes */
+Route::get('/contact', [FrontendController::class, 'contact'])->name('contact.index');
+Route::post('/contact', [FrontendController::class, 'sendContactMessage'])->name('contact.send-message');
+
+/** Reservation Routes */
+Route::post('/reservation', [FrontendController::class, 'reservation'])->name('reservation.store');
+
+/** Newsletter Routes */
+Route::post('/subscribe-newsletter', [FrontendController::class, 'subscribeNewsletter'])->name('subscribe-newsletter');
+
+/** Custom Page Routes */
+Route::get('/page/{slug}', CustomPageController::class);
+
+/** Product page Route*/
+Route::get('/products', [FrontendController::class, 'products'])->name('product.index');
+
 /** Show Product details page */
 Route::get('/product/{slug}', [FrontendController::class, 'showProduct'])->name('product.show');
 
@@ -73,6 +95,10 @@ Route::post('add-to-cart', [CartController::class, 'addToCart'])->name('add-to-c
 Route::get('get-cart-products', [CartController::class, 'getCartProduct'])->name('get-cart-products');
 Route::get('cart-product-remove/{rowId}', [CartController::class, 'cartProductRemove'])->name('cart-product-remove');
 
+/** Wishlist Route */
+Route::get('wishlist/{productId}', [WishlistController::class, 'store'])->name('wishlist.store');
+
+
 /** Cart Page Routes */
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart-update-qty', [CartController::class, 'cartQtyUpdate'])->name('cart.quantity-update');
@@ -81,7 +107,8 @@ Route::get('/cart-destroy', [CartController::class, 'cartDestroy'])->name('cart.
 /** Coupon Routes */
 Route::post('/apply-coupon', [FrontendController::class, 'applyCoupon'])->name('apply-coupon');
 Route::get('/destroy-coupon', [FrontendController::class, 'destroyCoupon'])->name('destroy-coupon');
-Route::group(['middleware' => 'auth'], function() {
+
+Route::group(['middleware' => 'auth'], function(){
     Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout.index');
     Route::get('checkout/{id}/delivery-cal', [CheckoutController::class, 'CalculateDeliveryCharge'])->name('checkout.delivery-cal');
     Route::post('checkout', [CheckoutController::class, 'checkoutRedirect'])->name('checkout.redirect');
@@ -107,7 +134,3 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('razorpay-redirect', [PaymentController::class, 'razorpayRedirect'])->name('razorpay-redirect');
     Route::post('razorpay/payment', [PaymentController::class, 'payWithRazorpay'])->name('razorpay.payment');
 });
-require __DIR__.'/auth.php';
-
-
-

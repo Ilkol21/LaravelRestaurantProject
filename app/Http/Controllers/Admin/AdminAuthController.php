@@ -9,6 +9,10 @@ use Illuminate\View\View;
 class AdminAuthController extends Controller
 {
     function index():View{
-        return view('admin/auth/login');
+        return view('admin.auth.login');
+    }
+    function forgetPassword() : \Illuminate\Contracts\View\View
+    {
+        return view('admin.auth.forget-password');
     }
 }

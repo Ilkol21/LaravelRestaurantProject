@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Frontend;
 use App\Events\OrderPaymentUpdateEvent;
 use App\Events\OrderPlacedNotificationEvent;
 use App\Events\RTOrderPlacedNotificationEvent;
-use App\Http\Controllers\Admin\Order;
+
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Services\OrderService;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;

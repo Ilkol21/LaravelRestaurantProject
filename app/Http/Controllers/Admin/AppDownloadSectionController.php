@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AppDownloadSectionCreateRequest;
 use App\Models\AppDownloadSection;
-use App\Traits\FileUploadTrait;
+use App\Trait\FileUploadTrait;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;

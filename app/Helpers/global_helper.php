@@ -2,7 +2,7 @@
 
 /** Create unique slug */
 
-use Gloudemans\Shoppingcart\Cart;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 if (!function_exists('generateUniqueSlug')) {
     function generateUniqueSlug($model, $name): string

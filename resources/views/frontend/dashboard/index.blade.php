@@ -101,21 +101,21 @@
                         <div class="fp__dashboard_content">
                             <div class="tab-content" id="v-pills-tabContent">
 
-{{--                                @include('frontend.dashboard.sections.personal-info-section')--}}
+                                @include('frontend.dashboard.sections.personal-info-section')
 
-{{--                                @include('frontend.dashboard.sections.address-section')--}}
+                                @include('frontend.dashboard.sections.address-section')
 
-{{--                                @include('frontend.dashboard.sections.reservation-section')--}}
+                                @include('frontend.dashboard.sections.reservation-section')
 
-{{--                                @include('frontend.dashboard.sections.order-section')--}}
+                                @include('frontend.dashboard.sections.order-section')
 
-{{--                                @include('frontend.dashboard.sections.message-section')--}}
+                                @include('frontend.dashboard.sections.message-section')
 
-{{--                                @include('frontend.dashboard.sections.wishlist-section')--}}
+                                @include('frontend.dashboard.sections.wishlist-section')
 
-{{--                                @include('frontend.dashboard.sections.review-section')--}}
+                                @include('frontend.dashboard.sections.review-section')
 
-{{--                                @include('frontend.dashboard.change-password')--}}
+                                @include('frontend.dashboard.change-password')
 
                             </div>
                         </div>

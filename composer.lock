@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bdc56adc7338b8bd289beee69e2a2c9d",
+    "content-hash": "f0eea9a98d185c93c3e3ae1843e3ff94",
     "packages": [
         {
             "name": "anayarojo/shoppingcart",
@@ -508,6 +508,73 @@
                 }
             ],
             "time": "2023-08-10T19:36:49+00:00"
+        },
+        {
+            "name": "efectn/laravel-menu-builder",
+            "version": "v1.5.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/efectn/laravel-menu-builder.git",
+                "reference": "72557b2d7976b725eeecf56e793f33ebf785a3ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/efectn/laravel-menu-builder/zipball/72557b2d7976b725eeecf56e793f33ebf785a3ee",
+                "reference": "72557b2d7976b725eeecf56e793f33ebf785a3ee",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/translation": "~9 || ~10",
+                "php": ">=8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Menu": "Efectn\\Menu\\Facades\\Menu"
+                    },
+                    "providers": [
+                        "Efectn\\Menu\\MenuServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Efectn\\Menu\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Muhammed Efe Çetin",
+                    "email": "efectn@protonmail.com",
+                    "homepage": "https://6tel.net",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Rendy Harimayco",
+                    "email": "rendyharimayco@gmail.com",
+                    "role": "Original Developer"
+                },
+                {
+                    "name": "Cristian Garcia",
+                    "email": "informacion@cristiangarcia.co",
+                    "role": "Original Developer"
+                }
+            ],
+            "description": " Wordpress like drag & drop menu builder for Laravel 9.x ",
+            "keywords": [
+                "builder",
+                "drag and drop",
+                "laravel",
+                "menu",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/efectn/laravel-menu-builder/issues",
+                "source": "https://github.com/efectn/laravel-menu-builder/tree/v1.5.3"
+            },
+            "time": "2023-09-12T11:27:00+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -4454,6 +4521,65 @@
                 "source": "https://github.com/srmklive/laravel-paypal/tree/3.0.30"
             },
             "time": "2024-03-03T15:33:56+00:00"
+        },
+        {
+            "name": "stripe/stripe-php",
+            "version": "v16.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stripe/stripe-php.git",
+                "reference": "d6de0a536f00b5c5c74f36b8f4d0d93b035499ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/d6de0a536f00b5c5c74f36b8f4d0d93b035499ff",
+                "reference": "d6de0a536f00b5c5c74f36b8f4d0d93b035499ff",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "3.5.0",
+                "phpstan/phpstan": "^1.2",
+                "phpunit/phpunit": "^5.7 || ^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Stripe\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stripe and contributors",
+                    "homepage": "https://github.com/stripe/stripe-php/contributors"
+                }
+            ],
+            "description": "Stripe PHP Library",
+            "homepage": "https://stripe.com/",
+            "keywords": [
+                "api",
+                "payment processing",
+                "stripe"
+            ],
+            "support": {
+                "issues": "https://github.com/stripe/stripe-php/issues",
+                "source": "https://github.com/stripe/stripe-php/tree/v16.6.0"
+            },
+            "time": "2025-02-24T22:35:29+00:00"
         },
         {
             "name": "symfony/console",

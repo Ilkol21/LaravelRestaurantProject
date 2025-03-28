@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\AddressCreateRequest;
 use App\Models\Address;
 use App\Models\DeliveryArea;
+use App\Models\Order;
+use App\Models\ProductRating;
+use App\Models\Reservation;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 

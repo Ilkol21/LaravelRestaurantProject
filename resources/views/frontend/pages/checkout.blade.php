@@ -36,15 +36,15 @@
 
                             <div class="fp__address_modal">
                                 <div class="modal fade" id="address_modal" data-bs-backdrop="static"
-                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="address_modalLabel"
-                                    aria-hidden="true">
+                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="address_modalLabel"
+                                     aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h1 class="modal-title fs-5" id="address_modalLabel">add new address
                                                 </h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
+                                                        aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="fp_dashboard_new_address d-block">
@@ -68,26 +68,26 @@
                                                             <div class="col-md-6 col-lg-12 col-xl-6">
                                                                 <div class="fp__check_single_form">
                                                                     <input type="text" placeholder="First Name"
-                                                                        name="first_name">
+                                                                           name="first_name">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6 col-lg-12 col-xl-6">
                                                                 <div class="fp__check_single_form">
                                                                     <input type="text" placeholder="Last Name"
-                                                                        name="last_name">
+                                                                           name="last_name">
                                                                 </div>
                                                             </div>
 
                                                             <div class="col-md-6 col-lg-12 col-xl-6">
                                                                 <div class="fp__check_single_form">
                                                                     <input type="text" placeholder="Phone"
-                                                                        name="phone">
+                                                                           name="phone">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6 col-lg-12 col-xl-6">
                                                                 <div class="fp__check_single_form">
                                                                     <input type="text" placeholder="Email"
-                                                                        name="email">
+                                                                           name="email">
                                                                 </div>
                                                             </div>
 
@@ -100,19 +100,19 @@
                                                                 <div class="fp__check_single_form check_area">
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="radio"
-                                                                            name="type" id="flexRadioDefault1"
-                                                                            value="home">
+                                                                               name="type" id="flexRadioDefault1"
+                                                                               value="home">
                                                                         <label class="form-check-label"
-                                                                            for="flexRadioDefault1">
+                                                                               for="flexRadioDefault1">
                                                                             home
                                                                         </label>
                                                                     </div>
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="radio"
-                                                                            name="type" id="flexRadioDefault2"
-                                                                            value="office">
+                                                                               name="type" id="flexRadioDefault2"
+                                                                               value="office">
                                                                         <label class="form-check-label"
-                                                                            for="flexRadioDefault2">
+                                                                               for="flexRadioDefault2">
                                                                             office
                                                                         </label>
                                                                     </div>
@@ -120,7 +120,7 @@
                                                             </div>
                                                             <div  style="display:flex;">
                                                                 <button style="width: 200px" type="button"
-                                                                    class="common_btn cancel_new_address mr-2">cancel</button>
+                                                                        class="common_btn cancel_new_address mr-2">cancel</button>
                                                                 <button style="width: 200px" type="submit" class="common_btn">save
                                                                     address</button>
                                                             </div>
@@ -139,7 +139,7 @@
                                         <div class="fp__checkout_single_address">
                                             <div class="form-check">
                                                 <input class="form-check-input v_address" value="{{ $address->id }}" type="radio" name="flexRadioDefault"
-                                                    id="home">
+                                                       id="home">
                                                 <label class="form-check-label" for="home">
                                                     @if ($address->type === 'home')
                                                         <span class="icon"><i class="fas fa-home"></i> home</span>
@@ -164,9 +164,9 @@
                         <p>subtotal: <span>{{ currencyPosition(cartTotal()) }}</span></p>
                         <p>delivery: <span id="delivery_fee">$00.00</span></p>
                         @if (session()->has('coupon'))
-                        <p>discount: <span>{{ currencyPosition(session()->get('coupon')['discount']) }}</span></p>
+                            <p>discount: <span>{{ currencyPosition(session()->get('coupon')['discount']) }}</span></p>
                         @else
-                        <p>discount: <span>{{ currencyPosition(0) }}</span></p>
+                            <p>discount: <span>{{ currencyPosition(0) }}</span></p>
 
                         @endif
                         <p class="total"><span>total:</span> <span id="grand_total">{{ currencyPosition(grandCartTotal()) }}</span></p>
@@ -185,8 +185,16 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
+            // Устанавливаем CSRF токен для всех AJAX запросов
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
             $('.v_address').prop('checked', false);
 
+            // Обработка клика на адрес
             $('.v_address').on('click', function(){
                 let addressId = $(this).val();
                 let deliveryFee = $('#delivery_fee');
@@ -196,25 +204,26 @@
                     method: 'GET',
                     url: '{{ route("checkout.delivery-cal", ":id") }}'.replace(":id", addressId),
                     beforeSend: function() {
-                        showLoader()
+                        showLoader();
                     },
                     success: function(response) {
                         deliveryFee.text("{{ currencyPosition(':amount') }}"
                             .replace(":amount", response.delivery_fee.toFixed(2)));
 
                         grandTotal.text("{{ currencyPosition(':amount') }}"
-                        .replace(":amount", response.grand_total.toFixed(2)));
+                            .replace(":amount", response.grand_total.toFixed(2)));
                     },
                     error: function(xhr, status, error){
                         let errorMessage = xhr.responseJSON.message;
                         toastr.success(errorMessage);
                     },
                     complete: function() {
-                        hideLoader()
+                        hideLoader();
                     }
                 })
-            })
+            });
 
+            // Обработка кнопки "Proceed to Payment"
             $('#procced_pmt_button').on('click', function(e){
                 e.preventDefault();
                 let address = $('.v_address:checked');
@@ -225,13 +234,13 @@
                 }
 
                 $.ajax({
-                    method: 'Post',
+                    method: 'POST',
                     url: '{{ route("checkout.redirect") }}',
                     data: {
                         id: id
                     },
                     beforeSend: function() {
-                        showLoader()
+                        showLoader();
                     },
                     success: function(response) {
                         window.location.href = response.redirect_url;
@@ -241,10 +250,10 @@
                         toastr.success(errorMessage);
                     },
                     complete: function() {
-                        hideLoader()
+                        hideLoader();
                     }
-                })
-            })
-        })
+                });
+            });
+        });
     </script>
 @endpush

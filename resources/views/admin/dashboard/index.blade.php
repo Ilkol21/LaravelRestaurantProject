@@ -16,7 +16,7 @@
                             <h4>Todays Orders</h4>
                         </div>
                         <div class="card-body">
-                            {{ $todaysOrders }}
+{{--                            {{ $todaysOrders }}--}}
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                             <h4>Todays Earnings</h4>
                         </div>
                         <div class="card-body">
-                            {{ currencyPosition($todaysEarnings) }}
+{{--                            {{ currencyPosition($todaysEarnings) }}--}}
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                             <h4>This Month Orders</h4>
                         </div>
                         <div class="card-body">
-                            {{ $thisMonthsOrders }}
+{{--                            {{ $thisMonthsOrders }}--}}
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                             <h4>This Months Earnings</h4>
                         </div>
                         <div class="card-body">
-                            {{ currencyPosition($thisMonthsEarnings) }}
+{{--                            {{ currencyPosition($thisMonthsEarnings) }}--}}
                         </div>
                     </div>
                 </div>
